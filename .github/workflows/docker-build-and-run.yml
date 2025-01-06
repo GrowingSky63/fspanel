@@ -17,20 +17,20 @@ jobs:
         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
       run: sudo docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
 
-    - name: Pull Docker image
-      run: sudo docker pull ${{ secrets.DOCKER_USERNAME }}/fspanel:latest
-
     - name: Delete old Docker container
           run: |
             if [ "$(sudo docker ps -a -q -f name=container_fspanel)" ]; then
               sudo docker rm -f container_fspanel
             fi
-    
+
     - name: Delete old Docker image
           run: |
             if [ "$(sudo docker images -q -f dangling=true)" ]; then
               sudo docker rmi $(sudo docker images -q -f dangling=true)
             fi
+
+    - name: Pull Docker image
+      run: sudo docker pull ${{ secrets.DOCKER_USERNAME }}/fspanel:latest
 
     - name: Run Docker container
       run: |
