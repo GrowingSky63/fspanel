@@ -1,25 +1,10 @@
-# Ignore Django migrations
-**/migrations/
+# Ignore all files in the root directory except specific ones
+/*
+!.gitignore
+!Dockerfile
+!manage.py
+!requirements.txt
 
-# Ignore database files
-*.sqlite3
-*.db
-
-# Ignore environment variables
-.env
-.env.*
-
-# Ignore cache files
-**/__pycache__/
-**/*.py[cod]
-
-# Ignore Docker environment variables
-docker-compose.override.yml
-docker-compose.override.yaml
-
-# Ignore virtual environments
+# Ignore action-runner and venv directories
+action-runner/
 venv/
-.env/
-
-# Ignore GitHub Actions runner files
-actions-runner/
