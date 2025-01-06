@@ -27,4 +27,4 @@ jobs:
         fi
 
     - name: Run Docker container
-      run: sudo docker run -d -p ${{ secrets.SERVER_PORT }}:${{ secrets.SERVER_PORT }} --name container_fspanel fspanel:latest
+      run: sudo docker run -d -p ${{ secrets.SERVER_PORT }}:${{ secrets.SERVER_PORT }} --name container_fspanel ${{ secrets.DOCKER_USERNAME }}/fspanel:latest
