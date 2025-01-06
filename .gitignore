@@ -1,0 +1,22 @@
+# Ignore Django migrations
+**/migrations/
+
+# Ignore database files
+*.sqlite3
+*.db
+
+# Ignore environment variables
+.env
+.env.*
+
+# Ignore cache files
+**/__pycache__/
+**/*.py[cod]
+
+# Ignore Docker environment variables
+docker-compose.override.yml
+docker-compose.override.yaml
+
+# Ignore virtual environments
+venv/
+.env/
