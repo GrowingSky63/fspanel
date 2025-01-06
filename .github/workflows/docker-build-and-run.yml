@@ -21,10 +21,16 @@ jobs:
       run: sudo docker pull ${{ secrets.DOCKER_USERNAME }}/fspanel:latest
 
     - name: Delete old Docker container
-      run: |
-        if [ "$(sudo docker ps -a -q -f name=container_fspanel)" ]; then
-          sudo docker rm -f container_fspanel
-        fi
+          run: |
+            if [ "$(sudo docker ps -a -q -f name=container_fspanel)" ]; then
+              sudo docker rm -f container_fspanel
+            fi
+    
+    - name: Delete old Docker image
+          run: |
+            if [ "$(sudo docker images -q -f dangling=true)" ]; then
+              sudo docker rmi $(sudo docker images -q -f dangling=true)
+            fi
 
     - name: Run Docker container
       run: |
