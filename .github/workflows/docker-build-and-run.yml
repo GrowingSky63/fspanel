@@ -18,7 +18,7 @@ jobs:
       run: sudo docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
 
     - name: Pull Docker image
-      run: sudo docker pull fspanel:latest
+      run: sudo docker pull ${{ secrets.DOCKER_USERNAME }}/fspanel:latest
 
     - name: Delete old Docker container
       run: |
