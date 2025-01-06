@@ -27,4 +27,4 @@ jobs:
         fi
 
     - name: Run Docker container
-      run: sudo docker run -d -p ${{ secrets.SERVER_PORT }}:${{ secrets.SERVER_PORT }} --name container_fspanel ${{ secrets.DOCKER_USERNAME }}/fspanel:latest
+      run: sudo docker run -d -p ${{ secrets.SERVER_PORT }}:${{ secrets.SERVER_PORT }} --name container_fspanel -e DJANGO_SECRET_KEY=${{ secrets.DJANGO_SECRET_KEY }} -e SERVER_IP=${{ secrets.SERVER_IP }} -e SERVER_PORT=${{ secrets.SERVER_PORT }} ${{ secrets.DOCKER_USERNAME }}/fspanel:latest
