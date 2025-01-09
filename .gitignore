@@ -1,5 +1,5 @@
 # Ignore all files in the root directory except specific ones
-/*.
+/*.*
 !.gitignore
 !Dockerfile
 !manage.py
@@ -8,3 +8,11 @@
 # Ignore action-runner and venv directories
 action-runner/
 venv/
+
+# Ignore Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Ignore Django migrations
+*/migrations/
